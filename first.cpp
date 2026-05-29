@@ -17,12 +17,27 @@ int main(){
     cout << sum << endl;
     cout << y << endl;
     cout << x+y << endl;
-    // cout << 2++ << endl;
+    // cout << 2++ << endl; lvalue error 
     cout << sizeof(a)   << endl;
     cout << sizeof(x)   << endl;
     cout << sizeof(s)   << endl;
     cout << sizeof(st)   << endl;
 
+    int num = 12321;
+    int curr = num;
+    int rev = 0;
+    while(num > 0){
+        int d = num%10;
+        rev = rev*10 + d;
+        num /= 10;
+    }
+    // cout << rev << " " << curr << endl;
+    cout<< (curr == rev)? "true":"false";
+
+    if(cout << curr)    cout << " " << rev;
+
+    int w;
+    if(cin>>w)  cout<<5*w;
     return 0;
 }
 
