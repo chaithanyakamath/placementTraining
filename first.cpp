@@ -26,7 +26,7 @@ int main(){
     int num = 12321;
     int curr = num;
     int rev = 0;
-    while(num > 0){
+    while(num > 0){ // for n while condn depends on true/false value not any int value
         int d = num%10;
         rev = rev*10 + d;
         num /= 10;
@@ -38,6 +38,7 @@ int main(){
 
     int w;
     if(cin>>w)  cout<<5*w;
+
     return 0;
 }
 
