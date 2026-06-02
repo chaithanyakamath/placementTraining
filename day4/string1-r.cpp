@@ -9,6 +9,27 @@ string substr(int start, int end, string str){
       return ans;
 }
 
+int sizze(string str){
+    int length = 0;
+    for(char c : str)   length++;
+    if(length == 0) return -1;
+
+    return length;
+}
+
+int findd(string big, string small){
+    int n = big.size();
+    int m = small.size();
+    for(int i=0; i<=(n-m); i++){
+        int j;
+        for(j=0; j<m; j++){
+            if(big[i+j] != small[j]) break; 
+        }
+        if(j == m)  return i;
+    }
+    return -1;
+}
+
 int main(){
 
     // string name;
@@ -25,9 +46,22 @@ int main(){
     // cout << "dept" << dept << endl;
     // cout << "classnum" << classnum << endl;
 
+    // string empty = "";
+    // string res = substr(3,17,big);
+    // int len = sizze(empty);
+    // int lenn = sizze(big);
+
+    // cout << res << endl;
+    // cout << (len==-1 ? "Empty string" : to_string(len)) << endl; // both shld be of same data type  
+    // cout << (lenn==-1 ? "Empty string" : to_string(lenn)) << endl;
+    
     string big = "qwertyuiopasdfghjklzxcvbnm";
-    string res = substr(3,17,big);
-    cout << res << endl;  
+    string small = "pasd";
+    int findD = findd(big, small);
+
+    cout << "found at " << (findD == -1 ? -1 : findD) << endl;
+
 
     return 0;
 }
+
