@@ -27,24 +27,23 @@ private:
 public:
 
     void bookTicket(string name) {
-
         int id = confirmed.size() + rac.size() + waiting.size() + 1;
         Passenger p(id, name);
 
         if (confirmed.size() < CONFIRMED_LIMIT) {
             confirmed.push_back(p);
             cout << "Ticket Confirmed for "
-                 << name << endl;
+                 << name << " with id " << id << endl;
         }
         else if (rac.size() < RAC_LIMIT) {
             rac.push_back(p);
             cout << "Ticket in RAC for "
-                 << name << endl;
+                 << name << " with id " << id << endl;
         }
         else if ((confirmed.size() + rac.size() + waiting.size()) < TOTAL_TICKETS) {
             waiting.push_back(p);
             cout << "Added to Waiting List: "
-                 << name << endl;
+                 << name << " with id " <<  id << endl;
         }
         else {
             cout << "No Tickets Available for "
@@ -55,7 +54,7 @@ public:
     void cancelTicket(int id) {
         for (int i = 0; i < confirmed.size(); i++) {
             if (confirmed[i].id == id) {
-                cout << "Cancelled Ticket of " << confirmed[i].name << endl;
+                cout << "Cancelled Ticket of " << confirmed[i].name << " " << id << endl;
                 confirmed.erase(confirmed.begin() + i);
 
                 // Move RAC -> Confirmed
@@ -78,15 +77,15 @@ public:
 
     void display() {
 
-        cout << "\n===== CONFIRMED =====\n";
+        cout << "\nConfirmed Tickets\n";
         for (auto p : confirmed)
             cout << p.id << " " << p.name << endl;
 
-        cout << "\n===== RAC =====\n";
+        cout << "\nRAC Tickets\n";
         for (auto p : rac)
             cout << p.id << " " << p.name << endl;
 
-        cout << "\n===== WAITING =====\n";
+        cout << "\nWaiting Tickets\n";
         for (auto p : waiting)
             cout << p.id << " " << p.name << endl;
     }

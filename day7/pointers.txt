@@ -1,0 +1,28 @@
+int x = 19;
+int *y = &x;
+int **z = &y;
+
+float *a = x; //error
+void *b = x; //works but shld typecast
+(int*)b 
+
+#define NULL 0*0  //NULL as value 0 so we can add any value to it to use int
+nullptr points to null to it cannot be assigned any value
+
+bool size is 1 byte but it actually needs 1bit, just bcz of memory allignment bool gets 1 byte. since rest all 7bits will be wasted instead.
+// cppreference
+//lerancpp.com
+
+For own datatype use struct n enum
+//struct has memory allignment - all will hv datatype of maximum datatype value - int gets double ka value
+if largest datatype is defined first thn fine i.e
+double val;             int data;
+int data;               double val;
+12 bytes                16 bytes
+
+class Node{
+    ~Node{ //destructor
+        delete this;
+    }
+    Node(){} // constructor
+}
